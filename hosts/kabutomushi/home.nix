@@ -4,15 +4,12 @@
 
   home.packages = with pkgs; [
     # networking stuff
-    mtr
     
     # secrets management
     keepassxc
     
     # misc
     neofetch
-    jq
-    yq-go
   ];
 
   programs.bash = {
@@ -29,12 +26,6 @@
 
       };
     };
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "fxyoge";
-    userEmail = "peanut@fxyoge.com";
   };
 
   # see: https://github.com/K1aymore/Nixos-Config/blob/master/packages/coding.nix

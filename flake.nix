@@ -19,8 +19,9 @@
           ./hosts/kabutomushi/hardware-configuration.nix
           ./hosts/kabutomushi/configuration.nix
           ./modules/cowsay {
-            cowsay.users = ["fxyoge"];
+            fxy.cowsay.users = ["fxyoge"];
           }
+          ./profiles/dev-basics
           home-manager.nixosModules.home-manager {
             home-manager.backupFileExtension = "bkp";
             home-manager.useGlobalPkgs = true;

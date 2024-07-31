@@ -1,14 +1,14 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   options = {
-    cowsay.users = pkgs.lib.mkOption {
-      type = pkgs.lib.types.listOf pkgs.lib.types.str;
+    fxy.cowsay.users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
     };
   };
   config = {
-    home-manager.users = pkgs.lib.listToAttrs (
+    home-manager.users = lib.listToAttrs (
       map (user: {
         name = user;
         value = { home.packages = [pkgs.cowsay]; };
-      }) config.cowsay.users);
+      }) config.fxy.cowsay.users);
   };
 }
