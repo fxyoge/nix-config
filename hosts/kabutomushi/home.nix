@@ -11,7 +11,6 @@
     
     # misc
     neofetch
-    cowsay
     jq
     yq-go
   ];
