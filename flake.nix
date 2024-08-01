@@ -8,24 +8,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     privateRepo.url = "git+ssh://git@github.com/fxyoge/nix-private?ref=master";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, privateRepo, ... }: {
     nixosConfigurations = {
       kabutomushi = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
-          { _module.args = { inherit inputs; }; }
           ./hosts/kabutomushi/hardware-configuration.nix
           ./hosts/kabutomushi/configuration.nix
           ./modules/cowsay {
             fxy.cowsay.users = ["fxyoge"];
           }
+          ./profiles/base
           ./profiles/dev-basics
-          home-manager.nixosModules.home-manager {
+          {
             home-manager.backupFileExtension = "bkp";
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
             home-manager.users.fxyoge = import ./hosts/kabutomushi/home.nix;
           }
         ];
