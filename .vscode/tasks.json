@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+        "label": "Update flake",
+        "command": "nix flake update",
+        "type": "shell"
+    }, {
+        "label": "Apply flake",
+        "command": "nh os switch /etc/nixos/nix-config",
+        "type": "shell"
+    }]
+}
