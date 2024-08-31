@@ -10,4 +10,4 @@ user_pref("privacy.resistFingerprinting.letterboxing", false);
 user_pref("privacy.resistFingerprinting", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+user_pref("privacy.sanitize.sanitizeOnShutdown", false);
