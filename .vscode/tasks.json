@@ -5,8 +5,12 @@
         "command": "nix flake update",
         "type": "shell"
     }, {
-        "label": "Apply flake",
-        "command": "nh os switch /etc/nixos/nix-config",
+        "label": "Apply flake (nixos)",
+        "command": "nix run nixpkgs#nh -- os switch /etc/nixos/nix-config",
+        "type": "shell"
+    }, {
+        "label": "Apply flake (home)",
+        "command": "nix run nixpkgs#nh -- home switch /etc/nixos/nix-config",
         "type": "shell"
     }]
 }
