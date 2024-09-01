@@ -1,5 +1,14 @@
-{ pkgs, ... }: {
-  home-manager.users.fxyoge = import ./home;
+{ inputs, pkgs, ... }: {
+  home-manager.users.fxyoge = {
+    imports = [
+      inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    ];
+    services.flatpak.enable = true;
+    services.flatpak.update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+    };
+  };
   
   services.flatpak.enable = true;
   xdg.portal.enable = true;
