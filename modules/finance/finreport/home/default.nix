@@ -25,8 +25,38 @@
   finreport-accounts = (pkgs.writeShellScriptBin "finreport-accounts" ''
     ${hledger-wrapper}/bin/hledger-wrapper -I accounts --types
   '');
+  finreport-bs = (pkgs.writeShellScriptBin "finreport-bs" ''
+    set -e
+    options=$(getopt -o p: -l period: -n "$0" -- "$@") || exit
+    eval set -- "$options"
+    arg_period="quarterly from 12 quarters ago"
+    while [[ $1 != -- ]]; do
+      case $1 in
+        -p|--period) arg_period="$2"; shift 2;;
+        *) echo "bad option: $1" >&2; shift 1;;
+      esac
+    done
+    shift
+    ${hledger-wrapper}/bin/hledger-wrapper balancesheet -V --infer-value --period "$arg_period"
+  '');
+  finreport-is = (pkgs.writeShellScriptBin "finreport-is" ''
+    set -e
+    options=$(getopt -o p: -l period: -n "$0" -- "$@") || exit
+    eval set -- "$options"
+    arg_period="quarterly from 12 quarters ago"
+    while [[ $1 != -- ]]; do
+      case $1 in
+        -p|--period) arg_period="$2"; shift 2;;
+        *) echo "bad option: $1" >&2; shift 1;;
+      esac
+    done
+    shift
+    ${hledger-wrapper}/bin/hledger-wrapper incomestatement -V --infer-value --period "$arg_period"
+  '');
 in {
   home.packages = [
     finreport-accounts
+    finreport-bs
+    finreport-is
   ];
 }
