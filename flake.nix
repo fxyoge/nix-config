@@ -53,7 +53,6 @@
           ./modules/dev/misc
           ./modules/dev/vim
           ./modules/dev/vscode
-          ./modules/finance
           ./modules/mail/thunderbird
           ./modules/media/mpv
           ./modules/media/tauon
@@ -85,6 +84,7 @@
         modules = [
           ./hosts/fxyoge-desktop
           ./modules/dev/vscode/home
+          ./modules/finance/finreport/home
           ./modules/media/hydrus/home
           ./modules/media/picard/home
           ./modules/media/tauon/home
