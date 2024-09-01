@@ -85,9 +85,11 @@
           ./hosts/fxyoge-desktop
           ./modules/dev/vscode/home
           ./modules/finance/finreport/home
+          ./modules/finance/finreport-dl/home
           ./modules/media/hydrus/home
           ./modules/media/picard/home
           ./modules/media/tauon/home
+          ./modules/system/common-options
           ./modules/system/flatpak/home
           ./modules/system/flatseal/home
           ./modules/system/private/home

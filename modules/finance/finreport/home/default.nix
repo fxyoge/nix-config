@@ -22,8 +22,9 @@
 
     LEDGER_FILE="$agg_journal" ${pkgs.hledger}/bin/hledger "$@"
   '');
+  hledger-wrapper-bin = "${hledger-wrapper}/bin/hledger-wrapper";
   finreport-accounts = (pkgs.writeShellScriptBin "finreport-accounts" ''
-    ${hledger-wrapper}/bin/hledger-wrapper -I accounts --types
+    ${hledger-wrapper-bin} -I accounts --types
   '');
   finreport-bs = (pkgs.writeShellScriptBin "finreport-bs" ''
     set -e
@@ -37,7 +38,7 @@
       esac
     done
     shift
-    ${hledger-wrapper}/bin/hledger-wrapper balancesheet -V --infer-value --period "$arg_period"
+    ${hledger-wrapper-bin} balancesheet -V --infer-value --period "$arg_period"
   '');
   finreport-is = (pkgs.writeShellScriptBin "finreport-is" ''
     set -e
@@ -51,7 +52,7 @@
       esac
     done
     shift
-    ${hledger-wrapper}/bin/hledger-wrapper incomestatement -V --infer-value --period "$arg_period"
+    ${hledger-wrapper-bin} incomestatement -V --infer-value --period "$arg_period"
   '');
 in {
   home.packages = [
