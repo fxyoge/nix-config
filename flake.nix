@@ -85,6 +85,9 @@
         modules = [
           ./hosts/fxyoge-desktop
           ./modules/dev/vscode/home
+          ./modules/media/hydrus/home
+          ./modules/media/picard/home
+          ./modules/media/tauon/home
           ./modules/system/flatpak/home
           ./modules/system/flatseal/home
           ./modules/system/private/home
