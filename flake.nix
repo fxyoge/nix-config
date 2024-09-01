@@ -77,5 +77,19 @@
         ];
       };
     };
+
+    homeConfigurations = {
+      "fxyoge@fxyoge-desktop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/fxyoge-desktop
+          ./modules/dev/vscode/home
+          ./modules/system/flatpak/home
+          ./modules/system/flatseal/home
+          ./modules/system/private/home
+        ];
+      };
+    };
   };
 }
