@@ -84,9 +84,11 @@
         modules = [
           ./hosts/fxyoge-desktop
           ./modules/dev/vscode/home
+          ./modules/games/steam/home
           ./modules/finance/finreport/home
           ./modules/finance/finreport-dl/home
           ./modules/media/hydrus/home
+          ./modules/media/inkscape/home
           ./modules/media/picard/home
           ./modules/media/tauon/home
           ./modules/system/common-options
