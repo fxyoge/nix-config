@@ -1,12 +1,12 @@
 { ... }: let
-  pname = "org.inkscape.Inkscape";
+  pname = "io.mango3d.LycheeSlicer";
 in {
   services.flatpak.packages = [ pname ];
   
   services.flatpak.overrides."${pname}" = {
     Context.filesystems = [
-      "!host"
-      "xdg-pictures"
+      "!home"
+      "xdg-documents"
     ];
   };
 }

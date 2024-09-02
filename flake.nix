@@ -10,6 +10,8 @@
     firefox-addons-rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     firefox-addons-rycee.inputs.nixpkgs.follows = "nixpkgs";
 
+    fjordlauncher.url = "github:unmojang/FjordLauncher";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -31,6 +33,7 @@
     nixpkgs,
     arkenfox,
     firefox-addons-rycee,
+    fjordlauncher,
     home-manager,
     nix-flatpak,
     nixos-hardware,
@@ -83,15 +86,24 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./hosts/fxyoge-desktop
+          ./modules/dev/goland/home
+          ./modules/dev/pycharm-pro/home
+          ./modules/dev/rider/home
           ./modules/dev/vscode/home
-          ./modules/games/steam/home
-          ./modules/finance/finreport/home
+          ./modules/dev/webstorm/home
           ./modules/finance/finreport-dl/home
+          ./modules/finance/finreport/home
+          ./modules/games/bottles/home
+          ./modules/games/fjord-launcher/home
+          ./modules/games/lutris/home
+          ./modules/games/steam/home
           ./modules/mail/thunderbird/home
           ./modules/media/hydrus/home
           ./modules/media/inkscape/home
+          ./modules/media/lychee/home
           ./modules/media/picard/home
           ./modules/media/tauon/home
+          ./modules/rss/rssguard/home
           ./modules/system/common-options
           ./modules/system/flatpak/home
           ./modules/system/flatseal/home
