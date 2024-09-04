@@ -6,8 +6,6 @@
   home-manager.users.fxyoge = {
     home.packages = with pkgs; [
       mtr # network tracing tool
-      jq
-      yq-go
     ];
   };
 }

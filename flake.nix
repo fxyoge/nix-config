@@ -61,6 +61,7 @@
           ./modules/media/tauon
           ./modules/misc/keepass
           ./modules/misc/neofetch
+          ./modules/misc/textprocessing
           ./modules/misc/tree
           ./modules/rss/rssguard
           ./modules/system/bash
@@ -103,6 +104,7 @@
           ./modules/media/lychee/home
           ./modules/media/picard/home
           ./modules/media/tauon/home
+          ./modules/misc/textprocessing/home
           ./modules/rss/rssguard/home
           ./modules/system/common-options
           ./modules/system/flatpak/home
