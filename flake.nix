@@ -88,6 +88,7 @@
         modules = [
           ./hosts/fxyoge-desktop
           ./modules/dev/goland/home
+          ./modules/dev/localai-podman/home
           ./modules/dev/pycharm-pro/home
           ./modules/dev/rider/home
           ./modules/dev/vscode/home
@@ -109,6 +110,7 @@
           ./modules/system/common-options
           ./modules/system/flatpak/home
           ./modules/system/flatseal/home
+          ./modules/system/nix-inspect/home
           ./modules/system/private/home
         ];
       };
