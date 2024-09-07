@@ -64,6 +64,7 @@
           ./modules/misc/textprocessing
           ./modules/misc/tree
           ./modules/rss/rssguard
+          ./modules/system/allow-unfree
           ./modules/system/bash
           ./modules/system/cups
           ./modules/system/flatpak
@@ -107,6 +108,7 @@
           ./modules/media/tauon/home
           ./modules/misc/textprocessing/home
           ./modules/rss/rssguard/home
+          ./modules/system/allow-unfree
           ./modules/system/common-options
           ./modules/system/flatpak/home
           ./modules/system/flatseal/home

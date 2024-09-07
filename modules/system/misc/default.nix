@@ -1,6 +1,5 @@
 { config, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
   time.timeZone = config.fxy.timezone;
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {

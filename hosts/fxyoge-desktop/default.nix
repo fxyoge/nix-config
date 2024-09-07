@@ -1,6 +1,5 @@
 { config, pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
   home.username = config.fxy.user;
   home.homeDirectory = "/home/${config.fxy.user}";
   home.stateVersion = "24.05";
