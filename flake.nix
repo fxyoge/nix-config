@@ -61,7 +61,6 @@
           ./modules/media/tauon
           ./modules/misc/keepass
           ./modules/misc/neofetch
-          ./modules/misc/textprocessing
           ./modules/misc/tree
           ./modules/rss/rssguard
           ./modules/system/allow-unfree
@@ -77,6 +76,7 @@
           ./modules/system/private
           ./modules/system/syncthing
           ./modules/terminal/alacritty
+          ./modules/terminal/text-processing
           ./modules/theme/cool
         ];
       };
@@ -106,7 +106,6 @@
           ./modules/media/lychee/home
           ./modules/media/picard/home
           ./modules/media/tauon/home
-          ./modules/misc/textprocessing/home
           ./modules/rss/rssguard/home
           ./modules/system/allow-unfree
           ./modules/system/common-options
@@ -114,6 +113,7 @@
           ./modules/system/flatseal/home
           ./modules/system/nix-inspect/home
           ./modules/system/private/home
+          ./modules/terminal/text-processing/home
         ];
       };
     };
