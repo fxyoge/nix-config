@@ -8,9 +8,13 @@
     arkenfox.flake = false;
 
     finreport-collect.url = "git+ssh://git@github.com/fxyoge/finreport-collect.git";
+    finreport-collect.inputs.flake-utils.follows = "flake-utils";
+    finreport-collect.inputs.nixpkgs.follows = "nixpkgs";
 
     firefox-addons-rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     firefox-addons-rycee.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-utils.url = "github:numtide/flake-utils";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +38,7 @@
     arkenfox,
     finreport-collect,
     firefox-addons-rycee,
+    flake-utils,
     home-manager,
     nix-flatpak,
     nixos-hardware,
@@ -118,5 +123,14 @@
         ];
       };
     };
-  };
+  } //
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs { inherit system; };
+    in {
+      packages = {
+        sops-add-host = pkgs.callPackage ./packages/sops-add-host {};
+        sops-add-user = pkgs.callPackage ./packages/sops-add-user {};
+        sops-update-keys = pkgs.callPackage ./packages/sops-update-keys {};
+      };
+    });
 }

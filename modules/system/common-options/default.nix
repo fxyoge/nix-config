@@ -1,6 +1,15 @@
 { lib, ... }: {
   # TODO: move all options from nix-private into here
   options = {
+    fxy.hostname = lib.mkOption {
+      type = lib.types.str;
+    };
+    fxy.user = lib.mkOption {
+      type = lib.types.str;
+    };
+    fxy.timezone = lib.mkOption {
+      type = lib.types.str;
+    };
     fxy.finance.defaultTargets = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];

@@ -33,7 +33,8 @@
   # todo: living life on the edge
   swapDevices = [ ];
 
-  networking.hostName = "kabutomushi";
+  fxy.hostname = "kabutomushi";
+  networking.hostName = config.fxy.hostname;
   networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
 

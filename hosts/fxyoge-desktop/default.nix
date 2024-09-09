@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  fxy.hostname = "fxyoge-desktop";
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   home.username = config.fxy.user;
   home.homeDirectory = "/home/${config.fxy.user}";
