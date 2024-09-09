@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, lib, ... }: {
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -15,4 +15,9 @@
       "!home"
     ];
   };
+  
+  services.flatpak.remotes = lib.mkOptionDefault [{
+    name = "unmojang";
+    location = "https://unmojang.github.io/unmojang-flatpak/index.flatpakrepo";
+  }];
 }

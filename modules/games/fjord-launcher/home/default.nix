@@ -1,5 +1,5 @@
-{ inputs, pkgs, ... }: {
-  home.packages = [
-    inputs.fjordlauncher.packages.${pkgs.system}.fjordlauncher
-  ];
+{ ... }: let
+  pname = "org.unmojang.FjordLauncher";
+in {
+  services.flatpak.packages = [{ appId = pname; origin = "unmojang"; }];
 }

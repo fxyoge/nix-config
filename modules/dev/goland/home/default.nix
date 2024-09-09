@@ -20,6 +20,7 @@ in {
 
     Context.persistent = [
       ".java"
+      "sdk"
     ];
   };
 }

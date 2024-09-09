@@ -7,10 +7,10 @@
     arkenfox.url = "github:arkenfox/user.js";
     arkenfox.flake = false;
 
+    finreport-collect.url = "git+ssh://git@github.com/fxyoge/finreport-collect.git";
+
     firefox-addons-rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     firefox-addons-rycee.inputs.nixpkgs.follows = "nixpkgs";
-
-    fjordlauncher.url = "github:unmojang/FjordLauncher";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -32,8 +32,8 @@
     self,
     nixpkgs,
     arkenfox,
+    finreport-collect,
     firefox-addons-rycee,
-    fjordlauncher,
     home-manager,
     nix-flatpak,
     nixos-hardware,
@@ -94,6 +94,7 @@
           ./modules/dev/rider/home
           ./modules/dev/vscode/home
           ./modules/dev/webstorm/home
+          ./modules/finance/finreport-collect/home
           ./modules/finance/finreport-dl/home
           ./modules/finance/finreport/home
           ./modules/games/bottles/home
