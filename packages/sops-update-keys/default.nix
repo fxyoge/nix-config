@@ -3,5 +3,6 @@
 
   secrets_path=/etc/nixos/nix-private/secrets
 
-  find "$secrets_path" -type f -exec ${pkgs.sops}/bin/sops updatekeys {} ';'
+  cd "$secrets_path"
+  find . -type f -exec ${pkgs.sops}/bin/sops updatekeys {} ';'
 ''
