@@ -16,7 +16,7 @@
       esac
     done
     shift
-    ${pkgs.hledger}/bin/hledger balancesheet -f "$journal_path" -V --infer-value --period "$arg_period"
+    ${pkgs.hledger}/bin/hledger balancesheet not:cur:'c:.+' -f "$journal_path" -V --infer-value --period "$arg_period"
   '');
   finreport-inventory = (pkgs.writers.writePython3Bin "finreport-inventory" {
     flakeIgnore = [ "E128" "E501" "W293" ];
@@ -34,7 +34,7 @@
       esac
     done
     shift
-    ${pkgs.hledger}/bin/hledger incomestatement -f "$journal_path" -V --infer-value --period "$arg_period"
+    ${pkgs.hledger}/bin/hledger incomestatement not:cur:'c:.+' -f "$journal_path" -V --infer-value --period "$arg_period"
   '');
 in {
   home.packages = [
