@@ -18,6 +18,9 @@
     shift
     ${pkgs.hledger}/bin/hledger balancesheet -f "$journal_path" -V --infer-value --period "$arg_period"
   '');
+  finreport-inventory = (pkgs.writers.writePython3Bin "finreport-inventory" {
+    flakeIgnore = [ "E128" "E501" "W293" ];
+  } ./finreport-inventory.py);
   finreport-is = (pkgs.writeShellScriptBin "finreport-is" ''
     set -e
     options=$(getopt -o p: -l period: -n "$0" -- "$@") || exit
@@ -37,6 +40,8 @@ in {
   home.packages = [
     finreport-accounts
     finreport-bs
+    finreport-inventory
     finreport-is
+    pkgs.hledger
   ];
 }
