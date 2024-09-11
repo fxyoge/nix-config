@@ -118,6 +118,7 @@
           ./modules/system/flatpak/home
           ./modules/system/flatseal/home
           ./modules/system/nix-inspect/home
+          ./modules/system/nix-github-token
           ./modules/system/private/home
           ./modules/terminal/text-processing/home
         ];
