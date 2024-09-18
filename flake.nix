@@ -107,6 +107,7 @@
           ./modules/games/lutris/home
           ./modules/games/steam/home
           ./modules/mail/thunderbird/home
+          ./modules/media/gimp/home
           ./modules/media/hydrus/home
           ./modules/media/inkscape/home
           ./modules/media/lychee/home
