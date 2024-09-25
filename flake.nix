@@ -114,6 +114,7 @@
           ./modules/media/picard/home
           ./modules/media/tauon/home
           ./modules/rss/rssguard/home
+          ./modules/social/discord/home
           ./modules/system/allow-unfree
           ./modules/system/common-options
           ./modules/system/flatpak/home
