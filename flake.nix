@@ -93,6 +93,7 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./hosts/fxyoge-desktop
+          ./modules/dev/git/home
           ./modules/dev/goland/home
           ./modules/dev/localai-podman/home
           ./modules/dev/pycharm-pro/home
