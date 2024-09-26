@@ -6,6 +6,7 @@ in {
   services.flatpak.overrides."${pname}" = {
     Context.filesystems = [
       "~/Downloads"
+      "~/Pictures"
     ];
     Context.persistent = [
       "Hydrus"
