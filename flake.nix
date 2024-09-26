@@ -70,7 +70,6 @@
           ./modules/rss/rssguard
           ./modules/system/allow-unfree
           ./modules/system/bash
-          ./modules/system/cups
           ./modules/system/flatpak
           ./modules/system/flatseal
           ./modules/system/home-manager
