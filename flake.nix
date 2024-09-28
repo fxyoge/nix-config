@@ -84,7 +84,7 @@
           ./modules/theme/cool
         ];
       };
-    };
+    }; # end nixosConfigurations
 
     homeConfigurations = {
       "fxyoge@fxyoge-desktop" = home-manager.lib.homeManagerConfiguration {
@@ -125,12 +125,13 @@
           ./modules/terminal/text-processing/home
         ];
       };
-    };
+    }; # end homeConfigurations
   } //
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs { inherit system; };
     in {
       packages = {
+        setup-nixos = pkgs.callPackage ./packages/setup-nixos {};
         sops-add-host = pkgs.callPackage ./packages/sops-add-host {};
         sops-add-user = pkgs.callPackage ./packages/sops-add-user {};
         sops-update-keys = pkgs.callPackage ./packages/sops-update-keys {};

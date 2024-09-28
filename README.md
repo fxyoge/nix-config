@@ -2,6 +2,12 @@
 
 My personal nix config. Some of it is hidden in private repos.
 
+## Setting up a new machine
+
+```
+nix run github:fxyoge/nix-config#setup-nixos
+```
+
 ## Setting up sops-nix
 
 ```
