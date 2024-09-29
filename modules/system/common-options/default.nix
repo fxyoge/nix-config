@@ -1,6 +1,10 @@
 { lib, ... }: {
   # TODO: move all options from nix-private into here
   options = {
+    fxy.disks = lib.mkOption {
+      type = lib.types.attrsOf lib.types.attrs;
+      default = {};
+    };
     fxy.hostname = lib.mkOption {
       type = lib.types.str;
     };

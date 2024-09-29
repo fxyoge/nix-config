@@ -22,10 +22,6 @@
     desktopManager.xfce.enableXfwm = false;
     displayManager.lightdm.enable = true;
     windowManager.i3.enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
   };
   
   home-manager.users.fxyoge = {

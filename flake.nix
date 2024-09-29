@@ -46,43 +46,60 @@
     stylix,
     private,
     ...
-  }: {
+  }: let
+    profiles = {
+      baseline = [
+        ./modules/browser/firefox
+        ./modules/dev/git
+        ./modules/dev/misc
+        ./modules/dev/vim
+        ./modules/dev/vscode
+        ./modules/misc/keepass
+        ./modules/misc/neofetch
+        ./modules/misc/tree
+        ./modules/mail/thunderbird
+        ./modules/media/mpv
+        ./modules/media/tauon
+        ./modules/rss/rssguard
+        ./modules/system/allow-unfree
+        ./modules/system/bash
+        ./modules/system/common-options
+        ./modules/system/flatpak
+        ./modules/system/flatseal
+        ./modules/system/home-manager
+        ./modules/system/locale
+        ./modules/system/misc
+        ./modules/system/nh
+        ./modules/system/nix-inspect
+        ./modules/system/private
+        ./modules/system/syncthing
+        ./modules/terminal/alacritty
+        ./modules/terminal/text-processing
+      ];
+    };
+  in {
     nixosConfigurations = {
+      ageha = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/ageha
+          ./modules/games/steam
+          ./modules/system/pipewire
+        ] ++ profiles.baseline;
+      };
+
       kabutomushi = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/kabutomushi
-          ./modules/browser/firefox
           ./modules/desktop/i3-xfce
           ./modules/desktop/polybar
           ./modules/desktop/rofi
-          ./modules/dev/git
-          ./modules/dev/misc
-          ./modules/dev/vim
-          ./modules/dev/vscode
-          ./modules/mail/thunderbird
-          ./modules/media/mpv
-          ./modules/media/tauon
-          ./modules/misc/keepass
-          ./modules/misc/neofetch
-          ./modules/misc/tree
-          ./modules/rss/rssguard
-          ./modules/system/allow-unfree
-          ./modules/system/bash
-          ./modules/system/flatpak
-          ./modules/system/flatseal
-          ./modules/system/home-manager
-          ./modules/system/misc
-          ./modules/system/nh
-          ./modules/system/nix-inspect
           ./modules/system/pipewire
-          ./modules/system/private
-          ./modules/system/syncthing
-          ./modules/terminal/alacritty
-          ./modules/terminal/text-processing
           ./modules/theme/cool
-        ];
+        ] ++ profiles.baseline;
       };
     }; # end nixosConfigurations
 
