@@ -4,7 +4,6 @@ in pkgs.symlinkJoin {
     name = pname;
     paths = with pkgs; [
         (writeShellScriptBin pname ./setup-nixos.sh)
-        cacert
         git
     ];
     buildInputs = [ pkgs.makeWrapper ];
