@@ -15,6 +15,7 @@ in {
     Context.filesystems = [
       "!xdg-run/gnupg"
       "!xdg-run/keyring"
+      "~/go"
       "~/Repos"
     ];
 

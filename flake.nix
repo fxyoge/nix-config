@@ -15,6 +15,9 @@
     firefox-addons-rycee.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
+    
+    hledger-merge.url = "github:fxyoge/hledger-merge";
+    hledger-merge.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +42,7 @@
     finreport-collect,
     firefox-addons-rycee,
     flake-utils,
+    hledger-merge,
     home-manager,
     nix-flatpak,
     nixos-hardware,
@@ -119,6 +123,7 @@
           ./modules/finance/finreport-collect/home
           ./modules/finance/finreport-dl/home
           ./modules/finance/finreport/home
+          ./modules/finance/hledger-merge/home
           ./modules/games/bottles/home
           ./modules/games/fjord-launcher/home
           ./modules/games/lutris/home
