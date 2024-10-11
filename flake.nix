@@ -153,6 +153,7 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       packages = {
+        ensure-repo-exists = pkgs.callPackage ./packages/ensure-repo-exists {};
         setup-nixos = pkgs.callPackage ./packages/setup-nixos {};
         sops-add-host = pkgs.callPackage ./packages/sops-add-host {};
         sops-add-user = pkgs.callPackage ./packages/sops-add-user {};

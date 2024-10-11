@@ -1,12 +1,12 @@
 { pkgs, ... }: let
-    pname = "setup-nixos";
+    pname = "ensure-repo-exists";
 in pkgs.symlinkJoin {
     name = pname;
     paths = with pkgs; [
         (writeShellApplication {
             name = pname;
-            runtimeInputs = [ git (callPackage ../sops-add-user {}) ];
-            text = builtins.readFile ./setup-nixos.sh;
+            runtimeInputs = [ git ];
+            text = builtins.readFile ./ensure-repo-exists.sh;
         })
     ];
 }
