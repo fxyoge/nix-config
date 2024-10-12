@@ -113,13 +113,11 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./hosts/fxyoge-desktop
+          ./modules/dev/jetbrains-toolbox/home
           ./modules/dev/git/home
           ./modules/dev/goland/home
           ./modules/dev/localai-podman/home
-          ./modules/dev/pycharm-pro/home
-          ./modules/dev/rider/home
           ./modules/dev/vscode/home
-          ./modules/dev/webstorm/home
           ./modules/finance/finreport-collect/home
           ./modules/finance/finreport-dl/home
           ./modules/finance/finreport/home
