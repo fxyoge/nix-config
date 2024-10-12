@@ -42,5 +42,17 @@
       });
       default = {};
     };
+    fxy.secrets = lib.mkOption {
+      type = lib.types.attrsOf (lib.types.submodule {
+        options = {
+          sopsFile = lib.mkOption {
+            type = lib.types.path;
+          };
+          key = lib.mkOption {
+            type = lib.types.str;
+          };
+        };
+      });
+    };
   };
 }
