@@ -5,7 +5,7 @@
   } ./finreport-dl.py);
 in {
   imports = [
-    inputs.private.homeManagerModules.finreport-dl
+    inputs.private.modules.home.finreport-dl
   ];
 
   home.packages = [

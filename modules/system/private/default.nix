@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }: {
   imports = [
-    inputs.private.nixosModules.private
+    inputs.private.modules.nixos.private
     inputs.sops-nix.nixosModules.sops
   ];
 

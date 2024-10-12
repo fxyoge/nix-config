@@ -1,6 +1,6 @@
 { config, inputs, pkgs, ... }: {
   imports = [
-    inputs.private.homeManagerModules.private
+    inputs.private.modules.generic.private
     inputs.sops-nix.homeManagerModules.sops
   ];
 
