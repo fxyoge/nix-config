@@ -11,6 +11,9 @@
     finreport-collect.inputs.flake-utils.follows = "flake-utils";
     finreport-collect.inputs.nixpkgs.follows = "nixpkgs";
 
+    finreport-dl.url = "git+ssh://git@github.com/fxyoge/finreport-dl.git";
+    finreport-dl.inputs.nixpkgs.follows = "nixpkgs";
+
     firefox-addons-rycee.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     firefox-addons-rycee.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -40,6 +43,7 @@
     nixpkgs,
     arkenfox,
     finreport-collect,
+    finreport-dl,
     firefox-addons-rycee,
     flake-utils,
     hledger-merge,
