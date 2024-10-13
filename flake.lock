@@ -181,11 +181,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1728783886,
-        "narHash": "sha256-uA4ykoHlF0pHcYXerBaeckjXxerQkjwdBr3pYQ9BAjI=",
+        "lastModified": 1728790076,
+        "narHash": "sha256-rWIt2XGsCVw0w4DTkhWUm3VVW7dEjFCpy63sm6NEUyg=",
         "ref": "refs/heads/main",
-        "rev": "35b0fa8157b292705ecd48b15f5229bcbcdc49a1",
-        "revCount": 41,
+        "rev": "ceabdb5799ef86005a315002809f244d84c52541",
+        "revCount": 63,
         "type": "git",
         "url": "ssh://git@github.com/fxyoge/finreport-dl.git"
       },
@@ -203,11 +203,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1728728052,
-        "narHash": "sha256-c3a3lFl+dscjyQHgTwZ8cxmn3ZL2haU6pBEpWdYSMcA=",
+        "lastModified": 1728792245,
+        "narHash": "sha256-u3DIFQ26jtO9kgxSXMVYYdjSF8VArR0jA0N7ns1wWoo=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "8f2c44880171bdb4ddf3d2ab55227259b02e61e2",
+        "rev": "8064396aa8c2491dcecbedf9c71140936f032056",
         "type": "gitlab"
       },
       "original": {
@@ -544,6 +544,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-personal": {
+      "locked": {
+        "lastModified": 1728847279,
+        "narHash": "sha256-3S8IQB9cS6x9XP+SpEuFX9G/2+UDwmW7MPEb0+xMyTc=",
+        "owner": "fxyoge",
+        "repo": "nixpkgs",
+        "rev": "b9e22a65043a4d2cbd997a2f91609cdf45658b24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fxyoge",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1728156290,
@@ -585,11 +600,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1728798999,
-        "narHash": "sha256-4OpbN99imMa0b9XE/dYc+b6c8mSSqZi4dp/+eY6UmFE=",
+        "lastModified": 1728847065,
+        "narHash": "sha256-VE+1IIcuWXILP2MHWIcHLgZ5QtKLI0SPqeSGdIYGW0Q=",
         "ref": "refs/heads/master",
-        "rev": "4052439449214e4b52f050682db70103f3363367",
-        "revCount": 85,
+        "rev": "2d2f9d89266d81121a123ee1d7761320523620af",
+        "revCount": 86,
         "type": "git",
         "url": "file:///etc/nixos/nix-private"
       },
@@ -610,6 +625,7 @@
         "nix-flatpak": "nix-flatpak",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-personal": "nixpkgs-personal",
         "private": "private",
         "sops-nix": "sops-nix",
         "stylix": "stylix"

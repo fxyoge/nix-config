@@ -7,10 +7,6 @@
     lib.filterAttrs (name: _: builtins.match "finreport-dl-.+-run" name != null) inputs.finreport-dl.packages.${pkgs.system}
   );
 in {
-  imports = [
-    inputs.private.modules.home.finreport-dl
-  ];
-
   home.packages = [
     finreport-dl
   ] ++ runners;

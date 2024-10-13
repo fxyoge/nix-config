@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-personal.url = "github:fxyoge/nixpkgs";
+
     arkenfox.url = "github:arkenfox/user.js";
     arkenfox.flake = false;
 
@@ -41,6 +43,7 @@
   outputs = inputs@{
     self,
     nixpkgs,
+    nixpkgs-personal,
     arkenfox,
     finreport-collect,
     finreport-dl,
@@ -153,9 +156,12 @@
   } //
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs { inherit system; };
+      pkgs-personal = import nixpkgs-personal { inherit system; };
     in {
       packages = {
         ensure-repo-exists = pkgs.callPackage ./packages/ensure-repo-exists {};
+        hledger-flow-wrap = pkgs-personal.callPackage ./packages/hledger-flow-wrap { inherit pkgs-personal; };
+        hledger-flow-xlsx2csv = pkgs.callPackage ./packages/hledger-flow-xlsx2csv {};
         setup-nixos = pkgs.callPackage ./packages/setup-nixos {};
         sops-add-host = pkgs.callPackage ./packages/sops-add-host {};
         sops-add-user = pkgs.callPackage ./packages/sops-add-user {};
