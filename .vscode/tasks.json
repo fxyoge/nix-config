@@ -16,5 +16,15 @@
         "label": "Apply flake (home)",
         "command": "nix run nixpkgs#nh -- home switch /etc/nixos/nix-config",
         "type": "shell"
+    },
+    {
+      "label": "Format flake",
+      "command": "nix fmt",
+      "type": "shell"
+    },
+    {
+      "label": "Check flake",
+      "command": "nix flake check",
+      "type": "shell"
     }]
 }

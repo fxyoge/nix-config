@@ -72,12 +72,29 @@ def validate_targets(targets: list, config: Dict) -> bool:
     return True
 
 
+def replace_date_placeholders(value: str) -> str:
+    now = datetime.now()
+    placeholders = {
+        "{{YYYY}}": now.strftime("%Y"),
+        "{{YY}}": now.strftime("%y"),
+        "{{MM}}": now.strftime("%m"),
+        "{{DD}}": now.strftime("%d"),
+        "{{YYYY-MM-DD}}": now.strftime("%Y-%m-%d"),
+        "{{YY-MM-DD}}": now.strftime("%y-%m-%d"),
+    }
+    for placeholder, replacement in placeholders.items():
+        value = value.replace(placeholder, replacement)
+    return value
+
+
 def prepare_arguments(target_config: Dict) -> List[str]:
     arguments = []
     for arg, value in target_config.get('arguments', {}).items():
         if isinstance(value, bool) and value:
             arguments.append(f"--{arg}")
         elif isinstance(value, (str, int, float)):
+            if isinstance(value, str):
+                value = replace_date_placeholders(value)
             arguments.extend([f"--{arg}", str(value)])
     return arguments
 
