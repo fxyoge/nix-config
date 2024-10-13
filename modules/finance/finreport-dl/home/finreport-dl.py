@@ -3,7 +3,7 @@ import json
 import os
 import subprocess
 import sys
-from typing import Dict
+from typing import Dict, List
 
 import platformdirs
 from pykeepass import PyKeePass
@@ -39,14 +39,14 @@ def remove_podman_secret(secret_name: str) -> None:
         print(f"Error removing podman secret '{secret_name}': {e}")
 
 
-def run_target_script(target: str, env_vars: Dict[str, str]) -> None:
+def run_target_script(target: str, env_vars: Dict[str, str], arguments: List[str]) -> None:
     script_name = f"finreport-dl-{target}-run"
     
     env = os.environ.copy()
     env.update(env_vars)
     
     try:
-        subprocess.run([script_name], env=env, check=True)
+        subprocess.run([script_name] + arguments, env=env, check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error running script for target '{target}': {e}")
     except FileNotFoundError:
@@ -70,6 +70,16 @@ def validate_targets(targets: list, config: Dict) -> bool:
             return False
 
     return True
+
+
+def prepare_arguments(target_config: Dict) -> List[str]:
+    arguments = []
+    for arg, value in target_config.get('arguments', {}).items():
+        if isinstance(value, bool) and value:
+            arguments.append(f"--{arg}")
+        elif isinstance(value, (str, int, float)):
+            arguments.extend([f"--{arg}", str(value)])
+    return arguments
 
 
 def main():
@@ -128,7 +138,8 @@ def main():
                     break
                     
             if not had_issue:
-                run_target_script(target, env_vars)
+                arguments = prepare_arguments(target_config)
+                run_target_script(target, env_vars, arguments)
     finally:
         for secret_name in created_secrets:
             remove_podman_secret(secret_name)

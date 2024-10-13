@@ -181,11 +181,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1728777537,
-        "narHash": "sha256-c7Hiar2yMtMBaSoeRS53OWv9NwIbLPvhydfavvv200s=",
+        "lastModified": 1728778376,
+        "narHash": "sha256-EJkoheAlvK9ycaA44Io8nXzl2fYPWlRsOyekqNocKnI=",
         "ref": "refs/heads/main",
-        "rev": "0fbba46cb0d75665f52ef13feaffe0817c08d108",
-        "revCount": 34,
+        "rev": "0d554789d858480e70fa14cbafc92990c99f28ea",
+        "revCount": 38,
         "type": "git",
         "url": "ssh://git@github.com/fxyoge/finreport-dl.git"
       },
@@ -585,11 +585,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1728773662,
-        "narHash": "sha256-uM4HgG2quD3fYn8JpZsjX0GxeqYF6TcWVslven6XO0Q=",
+        "lastModified": 1728778599,
+        "narHash": "sha256-XL8Wmp0XgF5z33HOjyltVEXrGm2jVGSR2Z3MLlzV6os=",
         "ref": "refs/heads/master",
-        "rev": "fad8e02094bcc0dd9821b168464b3722affad93b",
-        "revCount": 82,
+        "rev": "4c400a321897193b901df774052db873b0ff1c01",
+        "revCount": 83,
         "type": "git",
         "url": "file:///etc/nixos/nix-private"
       },
