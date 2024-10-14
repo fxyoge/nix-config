@@ -7,14 +7,13 @@ in {
     userDirs = builtins.attrNames (
       lib.filterAttrs (_: type: type == "directory") (builtins.readDir usersPathStr)
     );
-  in {
-    packages = lib.genAttrs (import inputs.systems) (system: {
-      homeConfigurations = lib.genAttrs userDirs (
+
+    mkConfigurations = system: 
+      lib.genAttrs userDirs (
         name:
           inputs.home-manager.lib.homeManagerConfiguration {
             pkgs = import inputs.nixpkgs {
               inherit system;
-
               config.allowUnfree = true;
             };
 
@@ -33,6 +32,18 @@ in {
             };
           }
       );
-    });
+
+    configurations = lib.foldl' lib.mergeAttrs {} (map mkConfigurations (import inputs.systems));
+
+    # Generate checks for each configuration
+    mkChecks = system: lib.mapAttrs' (name: config:
+      lib.nameValuePair "home-manager-${name}" (
+        config.activationPackage
+      )
+    ) (mkConfigurations system);
+
+  in {
+    inherit configurations;
+    checks = lib.genAttrs (import inputs.systems) mkChecks;
   };
 }

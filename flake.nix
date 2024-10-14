@@ -49,8 +49,14 @@
   outputs = inputs: let
     inherit (inputs.nixpkgs) lib;
     slib = import ./lib {inherit inputs;};
+    homeConfigurationsOutput = slib.homeConfigurations ./users;
   in
-    lib.recursiveUpdate (inputs.blueprint {
-      inherit inputs;
-    }) (slib.homeConfigurations ./users);
+    lib.recursiveUpdate 
+      (inputs.blueprint {
+        inherit inputs;
+      }) 
+      {
+        homeConfigurations = homeConfigurationsOutput.configurations;
+        checks = homeConfigurationsOutput.checks;
+      };
 }
