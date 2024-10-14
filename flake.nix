@@ -51,12 +51,12 @@
     slib = import ./lib {inherit inputs;};
     homeConfigurationsOutput = slib.homeConfigurations ./users;
   in
-    lib.recursiveUpdate 
-      (inputs.blueprint {
-        inherit inputs;
-      }) 
-      {
-        homeConfigurations = homeConfigurationsOutput.configurations;
-        checks = homeConfigurationsOutput.checks;
-      };
+    lib.recursiveUpdate
+    (inputs.blueprint {
+      inherit inputs;
+    })
+    {
+      homeConfigurations = homeConfigurationsOutput.configurations;
+      inherit (homeConfigurationsOutput) checks;
+    };
 }

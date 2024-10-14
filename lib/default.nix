@@ -8,7 +8,7 @@ in {
       lib.filterAttrs (_: type: type == "directory") (builtins.readDir usersPathStr)
     );
 
-    mkConfigurations = system: 
+    mkConfigurations = system:
       lib.genAttrs userDirs (
         name:
           inputs.home-manager.lib.homeManagerConfiguration {
@@ -36,12 +36,11 @@ in {
     configurations = lib.foldl' lib.mergeAttrs {} (map mkConfigurations (import inputs.systems));
 
     # Generate checks for each configuration
-    mkChecks = system: lib.mapAttrs' (name: config:
-      lib.nameValuePair "home-manager-${name}" (
-        config.activationPackage
-      )
-    ) (mkConfigurations system);
-
+    mkChecks = system:
+      lib.mapAttrs' (
+        name: config:
+          lib.nameValuePair "home-manager-${name}" config.activationPackage
+      ) (mkConfigurations system);
   in {
     inherit configurations;
     checks = lib.genAttrs (import inputs.systems) mkChecks;
