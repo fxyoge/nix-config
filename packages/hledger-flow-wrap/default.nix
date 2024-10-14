@@ -1,10 +1,10 @@
-{ pkgs-personal, ... }: let
+{ pkgs, ... }: let
     pname = "hledger-flow-wrap";
-in pkgs-personal.writeShellApplication {
+in pkgs.writeShellApplication {
     name = pname;
-    runtimeInputs = with pkgs-personal; [
+    runtimeInputs = with pkgs; [
         hledger
-        haskellPackages.hledger-flow
+        #haskellPackages.hledger-flow
         (callPackage ../hledger-flow-xlsx2csv {})
     ];
     text = builtins.readFile ./script.sh;
