@@ -1,25 +1,22 @@
-{ config, ... }:
-  let
-    # comes from https://github.com/nix-community/home-manager/blob/b3d5ea65d88d67d4ec578ed11d4d2d51e3de525e/modules/programs/rofi.nix#L259-L261
-    # but i'm not sure how to import from home-manager... surely one day i'll look back and think "why not? it's obvious" lol
-    mkLiteral = value: {
-      _type = "literal";
-      inherit value;
-    };
-    stylixCfg = config.stylix;
-    mkRgba = opacity: color:
-      let
-        c = config.lib.stylix.colors;
-        r = c."${color}-rgb-r";
-        g = c."${color}-rgb-g";
-        b = c."${color}-rgb-b";
-      in
-        mkLiteral
-          "rgba ( ${r}, ${g}, ${b}, ${opacity} % )";
-    mkRgb = mkRgba "100";
-    rofiOpacity = builtins.toString (builtins.ceil (config.stylix.opacity.popups * 100));
+{config, ...}: let
+  # comes from https://github.com/nix-community/home-manager/blob/b3d5ea65d88d67d4ec578ed11d4d2d51e3de525e/modules/programs/rofi.nix#L259-L261
+  # but i'm not sure how to import from home-manager... surely one day i'll look back and think "why not? it's obvious" lol
+  mkLiteral = value: {
+    _type = "literal";
+    inherit value;
+  };
+  stylixCfg = config.stylix;
+  mkRgba = opacity: color: let
+    c = config.lib.stylix.colors;
+    r = c."${color}-rgb-r";
+    g = c."${color}-rgb-g";
+    b = c."${color}-rgb-b";
   in
-{
+    mkLiteral
+    "rgba ( ${r}, ${g}, ${b}, ${opacity} % )";
+  mkRgb = mkRgba "100";
+  rofiOpacity = builtins.toString (builtins.ceil (config.stylix.opacity.popups * 100));
+in {
   home-manager.users.fxyoge = {
     stylix.targets.rofi.enable = false;
     # reference: https://github.com/danth/stylix/blob/master/modules/rofi/hm.nix

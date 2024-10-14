@@ -1,25 +1,30 @@
 {
-    "version": "2.0.0",
-    "tasks": [{
-        "label": "Update flake",
-        "command": "nix flake update",
-        "type": "shell"
-    }, {
-        "label": "Update flake (private)",
-        "command": "nix flake lock --update-input private",
-        "type": "shell"
-    }, {
-        "label": "Update flake (nixpkgs-personal)",
-        "command": "nix flake lock --update-input nixpkgs-personal",
-        "type": "shell"
-    }, {
-        "label": "Apply flake (nixos)",
-        "command": "nix run nixpkgs#nh -- os switch /etc/nixos/nix-config",
-        "type": "shell"
-    }, {
-        "label": "Apply flake (home)",
-        "command": "nix run nixpkgs#nh -- home switch /etc/nixos/nix-config",
-        "type": "shell"
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Update flake",
+      "command": "nix flake update",
+      "type": "shell"
+    },
+    {
+      "label": "Update flake (private)",
+      "command": "nix flake lock --update-input private",
+      "type": "shell"
+    },
+    {
+      "label": "Update flake (nixpkgs-personal)",
+      "command": "nix flake lock --update-input nixpkgs-personal",
+      "type": "shell"
+    },
+    {
+      "label": "Apply flake (nixos)",
+      "command": "nix run nixpkgs#nh -- os switch /etc/nixos/nix-config",
+      "type": "shell"
+    },
+    {
+      "label": "Apply flake (home)",
+      "command": "nix run nixpkgs#nh -- home switch /etc/nixos/nix-config",
+      "type": "shell"
     },
     {
       "label": "Format flake",
@@ -30,5 +35,6 @@
       "label": "Check flake",
       "command": "nix flake check",
       "type": "shell"
-    }]
+    }
+  ]
 }

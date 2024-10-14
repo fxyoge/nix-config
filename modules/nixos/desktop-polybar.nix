@@ -1,12 +1,10 @@
-{ config, ... }:
-  let
-    stylixCfg = config.stylix;
-    stylixLib = config.lib.stylix;
-  in
-{
+{config, ...}: let
+  stylixCfg = config.stylix;
+  stylixLib = config.lib.stylix;
+in {
   home-manager.users.fxyoge = {
     systemd.user.services.polybar = {
-      Install.WantedBy = [ "graphical-session.target" ];
+      Install.WantedBy = ["graphical-session.target"];
     };
     services.polybar = {
       enable = true;
@@ -32,34 +30,36 @@
           font-2 = "${stylixCfg.fonts.emoji.name}:pixelsize=12;0";
         };
       in {
-        "bar/main" = fonts // {
-          monitor = "\${env:MONIpolybar tray emptyTOR}";
-          height = 22;
-          radius = 0;
-          fixed-center = true;
-          bottom = true;
+        "bar/main" =
+          fonts
+          // {
+            monitor = "\${env:MONIpolybar tray emptyTOR}";
+            height = 22;
+            radius = 0;
+            fixed-center = true;
+            bottom = true;
 
-          background = background;
-          foreground = foreground;
+            inherit background;
+            inherit foreground;
 
-          line-size = 2;
-          line-color = "#f00";
+            line-size = 2;
+            line-color = "#f00";
 
-          border-size = 0;
+            border-size = 0;
 
-          padding-left = 0;
-          padding-right = 0;
+            padding-left = 0;
+            padding-right = 0;
 
-          module-margin-left = 0;
-          module-margin-right = 0;
+            module-margin-left = 0;
+            module-margin-right = 0;
 
-          modules-left = "i3";
-          modules-center = "xwindow";
-          modules-right = "tray sp cpu memory filesystem sp battery sp date sp";
+            modules-left = "i3";
+            modules-center = "xwindow";
+            modules-right = "tray sp cpu memory filesystem sp battery sp date sp";
 
-          scroll-up = "i3wm-wsnext";
-          scroll-down = "i3wm-wsprev";
-        };
+            scroll-up = "i3wm-wsnext";
+            scroll-down = "i3wm-wsprev";
+          };
 
         "settings" = {
           screenchange-reload = "true";
@@ -210,7 +210,7 @@
           label-connected = "E";
           format-connected = "<label-connected>";
           format-connected-foreground = stylixLib.colors.green;
-          
+
           label-disconnected = "E";
           format-disconnected = "<label-disconnected>";
           format-disconnected-foreground = stylixLib.colors.orange;

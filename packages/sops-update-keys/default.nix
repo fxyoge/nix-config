@@ -1,4 +1,5 @@
-{ pkgs, ... }: pkgs.writeShellScriptBin "sops-update-keys" ''
+{pkgs, ...}:
+pkgs.writeShellScriptBin "sops-update-keys" ''
   set -eou pipefail
 
   secrets_path=/etc/nixos/nix-private/secrets

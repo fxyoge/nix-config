@@ -1,5 +1,5 @@
-{ ... }: let
+_: let
   pname = "org.musicbrainz.Picard";
 in {
-  services.flatpak.packages = [ pname ];
+  services.flatpak.packages = [pname];
 }

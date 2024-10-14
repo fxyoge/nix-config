@@ -1,10 +1,14 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   environment.xfce.excludePackages = with pkgs; [
     xfce.parole
   ];
   services.displayManager.defaultSession = "none+i3";
   services.picom = {
-  #  enable = true;
+    #  enable = true;
     settings = {
       inactive-opacity = 0.9;
       active-opacity = 1;
@@ -23,9 +27,11 @@
     displayManager.lightdm.enable = true;
     windowManager.i3.enable = true;
   };
-  
+
   home-manager.users.fxyoge = {
-    xsession.windowManager.i3 = let mod = "Mod4"; in {
+    xsession.windowManager.i3 = let
+      mod = "Mod4";
+    in {
       enable = true;
       config = {
         bars = [];

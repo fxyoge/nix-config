@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   home-manager.users.fxyoge = import ../home/mail-thunderbird.nix;
 
   xdg.mime.defaultApplications = {

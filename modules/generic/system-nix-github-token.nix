@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   nix.extraOptions = ''
     !include ${config.sops.secrets.nixGithubAccessTokenConfig.path}
   '';

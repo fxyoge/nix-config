@@ -21,7 +21,7 @@
     firefox-addons-rycee.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
-    
+
     hledger-merge.url = "github:fxyoge/hledger-merge";
     hledger-merge.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -46,12 +46,10 @@
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    inputs:
-    let
-      lib = inputs.nixpkgs.lib;
-      slib = import ./lib { inherit inputs; };
-    in
+  outputs = inputs: let
+    inherit (inputs.nixpkgs) lib;
+    slib = import ./lib {inherit inputs;};
+  in
     lib.recursiveUpdate (inputs.blueprint {
       inherit inputs;
     }) (slib.homeConfigurations ./users);

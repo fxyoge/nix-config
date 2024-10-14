@@ -1,5 +1,9 @@
-{ config, flake, pkgs, ... }:
 {
+  config,
+  flake,
+  pkgs,
+  ...
+}: {
   imports = [
     flake.modules.generic.system-allow-unfree
     flake.modules.generic.system-common-options
@@ -35,7 +39,7 @@
 
   fxy.hostname = "fxyoge-desktop";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   home.username = config.fxy.user;
   home.homeDirectory = "/home/${config.fxy.user}";
   home.stateVersion = "24.05";

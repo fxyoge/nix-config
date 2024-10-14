@@ -1,5 +1,5 @@
-{ ... }: let
+_: let
   pname = "com.discordapp.Discord";
 in {
-  services.flatpak.packages = [ pname ];
+  services.flatpak.packages = [pname];
 }

@@ -1,7 +1,7 @@
-{ ... }: let
+_: let
   pname = "com.jetbrains.WebStorm";
 in {
-  services.flatpak.packages = [ pname ];
+  services.flatpak.packages = [pname];
 
   services.flatpak.overrides."${pname}" = {
     Context.sockets = [

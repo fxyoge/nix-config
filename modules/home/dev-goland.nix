@@ -1,7 +1,7 @@
-{ ... }: let
+_: let
   pname = "com.jetbrains.GoLand";
 in {
-  services.flatpak.packages = [ pname ];
+  services.flatpak.packages = [pname];
 
   services.flatpak.overrides."${pname}" = {
     Context.sockets = [

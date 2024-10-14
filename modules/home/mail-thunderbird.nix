@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   # reference: https://github.com/oddlama/nix-config/blob/2fece6e5cc7cd49ba2104ba1725bafb703ea85b4/users/myuser/graphical/thunderbird.nix#L8-L10
   programs.thunderbird = {
     enable = true;

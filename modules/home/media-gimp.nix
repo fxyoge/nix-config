@@ -1,5 +1,5 @@
-{ ... }: let
+_: let
   pname = "org.gimp.GIMP";
 in {
-  services.flatpak.packages = [ pname ];
+  services.flatpak.packages = [pname];
 }

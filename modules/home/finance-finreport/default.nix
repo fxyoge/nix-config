@@ -1,9 +1,9 @@
-{ pkgs, ... }: let
-  finreport-accounts = (pkgs.writeShellScriptBin "finreport-accounts" ''
+{pkgs, ...}: let
+  finreport-accounts = pkgs.writeShellScriptBin "finreport-accounts" ''
     journal_path="$HOME/Repos/fxyoge/finance/0_all"
     ${pkgs.hledger}/bin/hledger -f "$journal_path" -I accounts --types
-  '');
-  finreport-bs = (pkgs.writeShellScriptBin "finreport-bs" ''
+  '';
+  finreport-bs = pkgs.writeShellScriptBin "finreport-bs" ''
     set -e
     options=$(getopt -o p: -l period: -n "$0" -- "$@") || exit
     eval set -- "$options"
@@ -17,11 +17,13 @@
     done
     shift
     ${pkgs.hledger}/bin/hledger balancesheet not:cur:'c:.+' -f "$journal_path" -V --infer-value --period "$arg_period"
-  '');
-  finreport-inventory = (pkgs.writers.writePython3Bin "finreport-inventory" {
-    flakeIgnore = [ "E128" "E501" "W293" ];
-  } ./finreport-inventory.py);
-  finreport-is = (pkgs.writeShellScriptBin "finreport-is" ''
+  '';
+  finreport-inventory =
+    pkgs.writers.writePython3Bin "finreport-inventory" {
+      flakeIgnore = ["E128" "E501" "W293"];
+    }
+    ./finreport-inventory.py;
+  finreport-is = pkgs.writeShellScriptBin "finreport-is" ''
     set -e
     options=$(getopt -o p: -l period: -n "$0" -- "$@") || exit
     eval set -- "$options"
@@ -35,7 +37,7 @@
     done
     shift
     ${pkgs.hledger}/bin/hledger incomestatement not:cur:'c:.+' -f "$journal_path" -V --infer-value --period "$arg_period"
-  '');
+  '';
 in {
   home.packages = [
     finreport-accounts

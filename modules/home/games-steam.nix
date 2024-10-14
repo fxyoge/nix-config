@@ -1,8 +1,8 @@
-{ ... }: let
+_: let
   pname = "com.valvesoftware.Steam";
 in {
-  services.flatpak.packages = [ pname ];
-  
+  services.flatpak.packages = [pname];
+
   services.flatpak.overrides."${pname}" = {
     Context.filesystems = [
       "!xdg-music"

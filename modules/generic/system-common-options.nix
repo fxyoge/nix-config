@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   # TODO: move all options from nix-private into here
   options = {
     fxy.disks = lib.mkOption {
@@ -31,7 +31,7 @@
                   type = lib.types.str;
                 };
                 type = lib.mkOption {
-                  type = lib.types.enum [ "raw" "podmanSecret" ];
+                  type = lib.types.enum ["raw" "podmanSecret"];
                   default = "raw";
                 };
               };

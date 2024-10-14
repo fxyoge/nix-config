@@ -1,4 +1,11 @@
-{ config, flake, inputs, lib, modulesPath, ... }: {
+{
+  config,
+  flake,
+  inputs,
+  lib,
+  modulesPath,
+  ...
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     # close enough
@@ -37,11 +44,11 @@
     flake.modules.nixos.theme-cool
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-  
+  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
@@ -52,7 +59,7 @@
     "/crypto_keyfile.bin" = null;
   };
   boot.loader.grub.enableCryptodisk = true;
-  
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/${config.fxy.disks.kabutomushi.ssd.uuid}";
     fsType = "ext4";
@@ -63,7 +70,7 @@
   };
 
   # todo: living life on the edge
-  swapDevices = [ ];
+  swapDevices = [];
 
   fxy.hostname = "kabutomushi";
   networking.hostName = config.fxy.hostname;

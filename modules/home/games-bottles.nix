@@ -1,5 +1,5 @@
-{ ... }: let
+_: let
   pname = "com.usebottles.bottles";
 in {
-  services.flatpak.packages = [ pname ];
+  services.flatpak.packages = [pname];
 }

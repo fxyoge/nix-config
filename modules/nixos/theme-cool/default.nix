@@ -1,15 +1,19 @@
-{ inputs, lib, pkgs, ... }: 
-  with lib;
-  let
-    backgroundPixelPkg = pkgs.runCommand "fxy-background-pixel-pkg" {
-      buildInputs = [ pkgs.imagemagick ];
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  backgroundPixelPkg =
+    pkgs.runCommand "fxy-background-pixel-pkg" {
+      buildInputs = [pkgs.imagemagick];
     } ''
       mkdir -p $out
       convert -size 1x1 xc:black background_pixel.png
       cp background_pixel.png $out
     '';
-  in
-{
+in {
   imports = [
     inputs.stylix.nixosModules.stylix
     ./rofi.nix

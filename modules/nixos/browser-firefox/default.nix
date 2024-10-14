@@ -1,6 +1,10 @@
-{ pkgs, lib, inputs, ... }:
-  with lib;
 {
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+with lib; {
   home-manager.users.fxyoge = {
     # see: https://gitlab.com/usmcamp0811/dotfiles/-/blob/fb584a888680ff909319efdcbf33d863d0c00eaa/modules/home/apps/firefox/default.nix
     programs.firefox = {
