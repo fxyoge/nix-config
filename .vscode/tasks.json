@@ -12,11 +12,6 @@
       "type": "shell"
     },
     {
-      "label": "Update flake (nixpkgs-personal)",
-      "command": "nix flake lock --update-input nixpkgs-personal",
-      "type": "shell"
-    },
-    {
       "label": "Apply flake (nixos)",
       "command": "nix run nixpkgs#nh -- os switch /etc/nixos/nix-config",
       "type": "shell"
