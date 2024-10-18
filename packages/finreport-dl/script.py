@@ -90,13 +90,10 @@ def replace_date_placeholders(value: str) -> str:
 
 def prepare_arguments(target_config: Dict) -> List[str]:
     arguments = []
-    for arg, value in target_config.get('arguments', {}).items():
-        if isinstance(value, bool) and value:
-            arguments.append(f"--{arg}")
-        elif isinstance(value, (str, int, float)):
-            if isinstance(value, str):
-                value = replace_date_placeholders(value)
-            arguments.extend([f"--{arg}", str(value)])
+    for value in target_config.get('arguments', ""):
+        if isinstance(value, str):
+            value = replace_date_placeholders(value)
+        arguments.append(str(value))
     return arguments
 
 
@@ -131,6 +128,7 @@ def main():
     created_secrets = []
     try:
         for target in targets:
+            print(f"Running target '{target}'")
             target_config = config['targets'][target]
             env_vars = {}
             

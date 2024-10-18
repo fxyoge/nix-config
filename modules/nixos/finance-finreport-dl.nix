@@ -1,3 +1,3 @@
 _: {
-  home-manager.users.fxyoge = import ../home/finance-finreport-dl;
+  home-manager.users.fxyoge = import ../home/finance-finreport-dl.nix;
 }

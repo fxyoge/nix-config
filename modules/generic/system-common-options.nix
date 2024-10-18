@@ -39,8 +39,8 @@
             default = {};
           };
           arguments = lib.mkOption {
-            type = lib.types.attrsOf lib.types.str;
-            default = {};
+            type = lib.types.listOf lib.types.str;
+            default = [];
           };
         };
       });
